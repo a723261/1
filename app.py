@@ -6,8 +6,8 @@ import textblob
 import google.generativeai as genai
 import os
 
-api = "AIzaSyCWIsu6bFrMQ-ZE0-dsDELHTk-Yx4iwqH0"
-api=os.getenv("makersuite")
+#api = "AIzaSyAERZuHDhsmFlFNxeFEq99YCvdBePIQ4d8"
+api = os.getenv("makersuite")
 genai.configure(api_key=api)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
@@ -30,11 +30,11 @@ def SA():
 def SA_result():
     q = request.form.get("q")
     r = textblob.TextBlob(q).sentiment
-    return(render_template("SA_result.html", r=r))
+    return(render_template("SA_result.html",r=r))
 
 @app.route("/genAI",methods=["GET","POST"])
 def genAI():
-    return(render_template("SA.html"))
+    return(render_template("genAI.html"))
 
 @app.route("/genAI_result",methods=["GET","POST"])
 def genAI_result():
@@ -44,4 +44,3 @@ def genAI_result():
 
 if __name__ == "__main__":
     app.run()
-
