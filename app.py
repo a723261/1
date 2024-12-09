@@ -21,7 +21,6 @@ def SA():
 def SA():
     name = request.form.get("q")
     r = textblob.TextBlob(q).sentiment
-    sentiment = blob.sentiment
     return(render_template("SA_result.html", r=r))
 
 if __name__ == "__main__":
